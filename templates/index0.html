@@ -1,0 +1,149 @@
+<html>
+
+<head>
+    <title>日本の給与と分布</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style> .notDisp {
+      display:none;
+      }
+      .msr_h103 {
+  background: #1B73BA;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 30px;
+  margin: 0 0 20px;
+  padding: 5px 20px 5px 25px;
+  position: relative;
+  width: 100%;
+}
+
+/* h1白の三角形 */
+.msr_h103:before {
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #FFF;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  content: " ";
+  display: block;
+  left: 0;
+  margin: -10px 0 0 0;
+  position: absolute;
+  top: 50%;
+}
+.msr_h203 {
+  background: #F8F8F8;
+  border-top: 2px solid #1B73BA;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+  box-sizing: border-box;
+  color: #1B73BA;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 20px;
+  padding: 10px 15px 10px;
+}
+.msr_h303 {
+  border-bottom: 2px solid #1B73BA;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 20px;
+  padding-bottom: 5px;
+}
+.msr_h403 {
+  border-left: 2px solid #1B73BA;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 20px;
+  padding-left: 5px;
+}
+/*--------------------------------------
+テキスト
+---------------------------------------*/
+
+.msr_text_05 {
+  padding-bottom: 20px;
+  width: 460px;
+}
+.msr_text_05 label {
+  display: block;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.msr_text_05 input[type=text] {
+  background: #fff;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 14px;
+  padding: 10px;
+  height: 40px;
+  width: 460px;
+}
+
+    </style>
+</head>
+<body>
+    <h1 class="msr_h103">日本の給与と分布</h1>
+    <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00351000&bunya_l=03&tstat=000001012969&cycle=7&year=20180&month=0&tclass1=000001012970&result_back=1&result_page=1">使用したデータ</a>
+
+    <div>
+      <form name="form1">
+        <pclass="msr_text_05">Start Year
+        <input type=number id=start value="2008" step=1 min="2008" max="2018">
+        </p>
+        <pclass="msr_text_05">end Year
+        <input type=number id=end value="2018" step=1 min="2008" max="2018">
+        </p>
+        <div class="msr_radio_05">
+        <pclass="msr_text_05">プロットの種類
+        <input type=radio name="radio" id=chart_type1 value="plot" checked="checked">プロット
+        <input type=radio name="radio" id=chart_type2 value="areaplot" >エリアプロット
+        </p>
+      </div>
+      </form>
+<pclass="msr_text_05">日本の人口を年収別に俯瞰します。基本的に100万円刻みのデータです</p>
+    </div>
+    <img id=plotimg></img>
+
+    <h2 class="msr_h203">微調整をする</h2>
+    <p>項目を選択して詳細に確認できます
+    </p>
+
+      <div id="displayArea">
+        <!-- <input type=button id=plot value="確定"> -->
+    <!--  ここに出力  -->
+    </div>
+    <button id="addButton">Add</button>
+  <div id="templateForm" class="notDisp">
+  <span class="dispInfo"></span>
+
+  <!-- <input type="text" name="templateTextbox"> -->
+  <p>
+<input type="checkbox" name="class" value="100">~100
+<input type="checkbox" name="class" value="200">~200
+<input type="checkbox" name="class" value="300">~300
+<input type="checkbox" name="class" value="400">~400
+<input type="checkbox" name="class" value="500">~500
+<input type="checkbox" name="class" value="600">~600
+<input type="checkbox" name="class" value="700">~700
+<input type="checkbox" name="class" value="800">~800
+<input type="checkbox" name="class" value="900">~900
+<input type="checkbox" name="class" value="1000">~1000
+<input type="checkbox" name="class" value="1500">~1500
+<input type="checkbox" name="class" value="2000">~2000
+<input type="checkbox" name="class" value="2500">~2500
+<input type="checkbox" name="class" value="2501">2500~
+</p>
+  <!-- <button name="testButton">TEST</button> -->
+  <!-- <span class="dispInfo"></span> -->
+  <button name="removeButton">REMOVE</button>
+</div>
+</body>
+<script type="text/javascript" src="/static/plot1.js"> </script>
+
+</html>
